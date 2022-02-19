@@ -17,9 +17,8 @@ def reverseit():
     for i in range(reqemsayi):
         myList=int(input())
         reqList.append(myList)
-    x=reqList.copy()
-    reqList.reverse()
-    if reqList[0]==x[0]:
+  
+    if reqList[0]==reqList[-1]:
         return True
     else: return False
 
