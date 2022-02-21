@@ -1,14 +1,4 @@
-
-# reqemsayi=int(input())
-# reqList=[]
-# for i in range(reqemsayi):
-#     myList=int(input())
-#     reqList.append(myList)
-# x=reqList.copy()
-# reqList.reverse()
-# print(x[0])
-# print(reqList[0])
-# print(type(x[0]))
+#  funksiya yazin ededlerden ibaret list qebul etsin ve eger listin birinci ve sonuncu elementleri beraberdise return True qaytarsin. Mes: [1,2,3,1] bu halda True qaytaracag
 
 def reverseit():
     reqemsayi=int(input())

@@ -5,4 +5,4 @@ def func(reqemler):
     return netice
 
 
-print(func([2,3,1,4,10]))
+print(func([2,3,1,4,-10]))

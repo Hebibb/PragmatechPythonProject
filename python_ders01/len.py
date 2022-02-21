@@ -1,1 +1,0 @@
-# len() funksiyasini ozunuz yazmaga calishin.

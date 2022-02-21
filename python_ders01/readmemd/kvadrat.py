@@ -1,4 +1,4 @@
-# Tapsiriq I
+# Kvadrat yaratmaq olarsa daxil edilən 4 ədəddən, ekrana kvadratın sahəsini, olmazsa, həmin ədədlərin cəmini verin.
 kvadrat=[]
 for i in range(4):
     b=int(input())
