@@ -1,4 +1,4 @@
-want_amount=int(input())
+want_amount=int(input("Nagd cixaris: "))
 besyuzlukler=int(want_amount/500)
 ikiyuzluk=int((want_amount-besyuzlukler*500)/200)
 yuzluk=int((want_amount-besyuzlukler*500-ikiyuzluk*200)/100)
@@ -8,6 +8,7 @@ onluq=int((want_amount-besyuzlukler*500-ikiyuzluk*200-yuzluk*100-ellilik*50-iyir
 
 if want_amount%10==0:
     print(onluq+iyirmilik+ellilik+yuzluk+ikiyuzluk+besyuzlukler)
+else: print('uzr isteyirik bankomatda 1 veya 5 manatliq eskinaslar yoxdur')
 
 
 
