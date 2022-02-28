@@ -1,24 +1,29 @@
-val_coxalan=[10,20,50,100,200,500]
-val_azalan=val_coxalan[::-1]
-gel=[]
+# Kvadrat tenliyi hell eden funksiya yazin (Kvadrat tenliyi research edin eger bilmirsize)
+import math
+a=3
+b=6
+c=1
 
-sifir=0
 
-want_money=int(input())
-qalan=want_money-i
-for t in range(10):
-    for i in val_azalan:
-        want_money=qalan
-        if want_money>0:
-            gel.append(i)
-            for j in val_azalan:
-                want_money=qalan
-                if want_money>0:
-                    gel.append(j)
-              
-                else: break
-        else: break
-          
+D=b**2-4*a*c
+
+# math.sqrt(x)
+
+print(D)
+if D==0:
+    x=-b/2/a
+    a*x**+b*x+c==0
+    print(f'tenliyin her iki koku {int(x)}-e beraberdir ')
+elif D>0:
+    x1=(-b+math.sqrt(D))/2/a
+    x2=(-b-math.sqrt(D))/2/a
+    print(x1,x2)
+    
+else: print('Bu tenliyin koku yoxdur')
+    
+
+    
+    
         
         
                
