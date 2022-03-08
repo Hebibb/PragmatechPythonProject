@@ -1,0 +1,18 @@
+To create an app you have to write in terminal following:
+./manage.py startapp nameofapp
+After creating each app (blog,account), they have to be added to installed_apps in settings.py
+requirements:
+1. If project is large enough, you can split it into small apps
+in app namely blog:
+1.__init__.py: is place for codes to be done first when app run 
+2. admin.py: place for models(tables)
+3. views.py: is like a route in flask
+4. MVT(MODELS, VIEWS,TEMPLATES):
+USER>>>>>>DJANGO>>>>>URL>>>>>View>>>(models>>>data,templates)
+as you can see above USER(PC or client) sends command to django request in url(path)
+ django receives it as route in view and in response connects it with models which add data in 
+ database and shows that data at templates 
+USER: request from user can be in two type . info from database which is dynamic data such as you
+ want to find info about smth which included in database or simple response like showing
+  common HTML codes,links or etc. These locate in template 
+
