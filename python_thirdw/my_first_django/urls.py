@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blogs.views import blog
-from accounts.views import account
+from blogs.views import blogs
+
+from accounts.views import *
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),#like routes in flask 
-    path('blog/',blog),
-    path('accounts/',account)
+   
+    path('accounts/',account),
+    path("blog/", blogs),
+    path('accounts/translate/',users)
 ]

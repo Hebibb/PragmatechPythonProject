@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 # Create your views here.
 
 #functional base view
-def blog(request):
-    return HttpResponse('My blog')
+
+def blogs(request):
+    
+    return render(request, 'blog/blog.html')
