@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+ {% block title %}
+{{writer.name}}
+{% endblock title %}
+{% block content %}
+<p> author {{writer.name}} </p>
+<p> title {{writer.title}} </p>
+<p> published in {{writer.publish_date}} </p>
+<p> content {{writer.about}} </p>
+
+
+
+{% endblock %} 

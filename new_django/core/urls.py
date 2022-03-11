@@ -20,7 +20,7 @@ from accounts.views import *
 
 
 
-from accounts.views import account
+from accounts.views import account,columnists
 
 
 
