@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path,include
 from blogs.views import sen,inblog
 from accounts.views import *
-
+#asagidaki ikidene basqa proyektden import edilib
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 from accounts.views import account,columnists
@@ -28,5 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blogs/', include('blogs.url.blogs_url') ),
     path('inblogs/', inblog),
-    path('accounts/', include('accounts.urls.acc_url') )
-]
+    path('accounts/', include('accounts.urls.acc_url') ),
+ 
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+#asagidaki ikidene basqa proyektden import edilib

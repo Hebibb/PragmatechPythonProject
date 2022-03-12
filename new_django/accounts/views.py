@@ -8,6 +8,7 @@ def register(request):
 
 
 def columnists(request, pk):
+   
     writers=[
         {
             1:{

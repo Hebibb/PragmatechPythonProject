@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %} Yazarlar {% endblock title %} {% block content %} {% for yazar in Yazarlar %} Author:
+<p>{{yazar.fullname}}</p>
+Basliq:
+<p>{{yazar.title}}</p>
+Context:
+<p>{{yazar.body}}</p>
+ yayim tarixi:
+<p>{{yazar.date}}</p>
+Qiymet:
+<p>{{yazar.price}}</p>
+
+
+
+{% endfor %} {% endblock %}
