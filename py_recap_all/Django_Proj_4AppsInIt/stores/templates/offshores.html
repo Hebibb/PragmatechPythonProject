@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %}
+My country
+{% endblock title %}
+  
+{% block content %}
+  {% for country in countries %}
+    <h1>{{country.1}} is dummy</h1>
+    <h2>{{country.2}} is a little bit crazy</h2>
+    <h3>{{country.3}} cries for everything</h3>
+    <h3>{{country.4}} afraids of all</h3>
+    <h3>{{country.4}} afraids of all</h3>
+    <h3>{{country.4}} afraids of all</h3>
+    <h3>{{country.4}} afraids of all</h3>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCOUNTS</title>
-</head>
-
-<body>
-    <h1>{{1}}</h1>
-    <h2>{{2}}</h2>
-    <h3>{{3}}</h3>
-    <h3>{{4}}</h3>
-</body>
-
-</html>
+    {% endfor %}{% endblock %}

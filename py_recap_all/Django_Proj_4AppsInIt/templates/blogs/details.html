@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% load static %} {% block title %} blog details {% endblock %} {% block content %}
+<div class="row">
+
+    <div class="col-sm-4 my-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/17olympics-briefing-us-canada-hockey-wt1-superJumbo.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h1>{{blog.author}}</h1>
+                <h5 class="card-title">{{blog.title}}</h5>
+                <p>{{blog.publish_date}}</p>
+                <a href="{% url 'offshore' %}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-sm-4 my-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/HarukiMurakami.png' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="{% url 'blog' %}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 my-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/HarukiMurakami.png' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="{% url 'acc' %}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 my-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/HarukiMurakami.png' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="{% url 'blognew' %}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

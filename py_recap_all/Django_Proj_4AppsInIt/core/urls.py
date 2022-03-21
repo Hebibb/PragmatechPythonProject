@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from accounts.views import my_account,other_profile
 from services.views import my_services
+from blogs.views import blog_news
+from blogs.views import blog_details
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', my_account),
+    path('accounts/', my_account,name='acc'),
     path('accounts/profile', other_profile),
     path('blogs/', include('blogs.blog_urls.urls')),
     path('services/', my_services),

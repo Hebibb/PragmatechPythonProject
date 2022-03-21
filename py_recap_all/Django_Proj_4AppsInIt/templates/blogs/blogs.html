@@ -1,4 +1,6 @@
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block title %} My blogs {% endblock %} {% block content %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 <img src="{% static 'images/1.jpg' %}" alt="">
+
 <h1>All Blogs</h1>
+{% endblock %}
