@@ -1,0 +1,23 @@
+{% extends 'home.html' %} {% block content %} {% for blog in blogs %}
+
+
+<div class="card-body">
+    {% if blog.image %}
+    <img class="card-img-top" src="{{ blog.image.url }}" width='200px'> {% else %}
+    <p>No image</p>
+    {% endif %}
+    <h3 class="card-title">{{blog.fullname}}</h3>
+    <h5 class="card-title">{{blog.title}}</h5>
+    <p class="card-text">{{blog.content}}</p>
+    <p class="card-text">{{blog.price}} AZN</p>
+    <p class="card-text">{{blog.published}}</p>
+    <p class="card-text">{{blog.status}}</p>
+
+
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+
+
+{% endfor %} {% endblock %}
+
+</div>

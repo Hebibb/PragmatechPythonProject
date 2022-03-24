@@ -1,0 +1,23 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.footer,
+.push {
+    height: 50px;
+    margin-top: -50px;
+}
+
+image {
+    width: 300px !important;
+}
+
+.flexit {
+    display: flex;
+}
+
+.card-img-top {
+    width: 200px;
+}
