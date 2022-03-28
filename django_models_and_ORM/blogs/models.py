@@ -2,12 +2,21 @@ from django.db import models
 from distutils.command.upload import upload
 # Create your models here.
 # ORM(OBJECT RELATIONAL MAPPING)
+
+class Author(models.Model):
+    fullname=models.CharField(default='Unknown',max_length=50, blank=True,null=True)
+    age=models.IntegerField(default=18,)
+    about=models.TextField(max_length=500,blank=True,null=True)
+
+    def __str__(self):
+        return f'{self.fullname} '
+    
 class Blog(models.Model):
     CHOICES=(('active','On'),('deactive','Off'))
     
     
    
-    fullname=models.CharField( max_length=50, blank=True,null=True)
+    author=models.ForeignKey(Author, on_delete=models.CASCADE,null=True)
     title=models.CharField( max_length=50, blank=True)
     status=models.CharField(max_length=30, choices=CHOICES)
     content=models.TextField(max_length=20, default='UNKNOWN')
@@ -17,10 +26,10 @@ class Blog(models.Model):
     price =models.IntegerField(default=0)
     
     def __str__(self):
-        return f'{self.fullname}\'s books is \'{self.title}\' and price is {self.price} AZN'
+        return f'{self.author}\'s books is \'{self.title}\' and price is {self.price} AZN'
 class Meta:
-    verbose_name='Post'
-    verbose_name_plural='Posts'
+    verbose_name='Blog'
+    verbose_name_plural='Blogs'
     ordering=('-published_date', )#last added will be shown first
     
     

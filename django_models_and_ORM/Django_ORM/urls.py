@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blogs.views import blogs
+from aircrafts.views import air
 from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('homepage', blogs, name='home' )
+    path('homepage', blogs, name='home' ),
+    path('airliners/', air, name='airline' )
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#modelleri yazmaq ucun bu settingsi de urle elave etmek lazimdi.

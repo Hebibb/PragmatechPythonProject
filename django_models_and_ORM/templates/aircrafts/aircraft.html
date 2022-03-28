@@ -1,0 +1,23 @@
+{% extends 'home.html' %} {% block content %}
+<div class="col-sm-4">
+    {% for plane in Airline %}
+    <div class="card-body" margin-top='100px'>
+        {% if plane.image %}
+        <img class="card-img-top" src="{{ plane.image.url }}" width='200px'> {% else %}
+        <p>No image</p>
+        {% endif %}
+        <h3 class="card-title">Company: {{plane.company}}</h3>
+        <h5 class="card-title">Type: {{plane.plane_name}}</h5>
+        <h5 class="card-title">Price: {{plane.rent_price}}</h5>
+        Current Flight hours is {{plane.fl_score}}
+        </p>
+        <p class="card-text">ABOUT: {{plane.about}}
+            <br> <br>
+
+
+
+            <a href="#" class="btn btn-primary">Go somewhere</a> {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
