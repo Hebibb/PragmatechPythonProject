@@ -24,13 +24,13 @@ class Blog(models.Model):
     published=models.DateTimeField(auto_now_add=True)
     update_date=models.DateTimeField(auto_now=True)
     price =models.IntegerField(default=0)
-    
+    bloglar=models.Manager()#query edende default olan objects yerine bloglar islenecek
     def __str__(self):
         return f'{self.author}\'s books is \'{self.title}\' and price is {self.price} AZN'
-class Meta:
-    verbose_name='Blog'
-    verbose_name_plural='Blogs'
-    ordering=('-published_date', )#last added will be shown first
+    class Meta:
+        verbose_name='Blog'
+        verbose_name_plural='Blogs'
+        ordering=('-price', )#last added will be shown first
     
     
    
