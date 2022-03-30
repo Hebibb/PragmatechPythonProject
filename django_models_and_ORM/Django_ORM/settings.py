@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     #my apps
     'blogs.apps.BlogsConfig',
     'aircrafts.apps.AircraftsConfig',
-    'products'
+    'products',
+    'clothes'
 ]
 
 MIDDLEWARE = [

@@ -32,4 +32,5 @@ class Song(models.Model):
     
     def __str__(self):
         return f'{self.company}\'s song namely {self.title} has rating of {self.ratings}  '
-    
+# CLASSES for music ends
+#clothes classes starts

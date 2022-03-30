@@ -4,3 +4,4 @@ from .models import Song,Singer,Company
 admin.site.register(Song)
 admin.site.register(Singer)
 admin.site.register(Company)
+
