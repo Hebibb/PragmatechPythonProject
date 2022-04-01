@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from blogs.views import blogs
 from aircrafts.views import air
 from django.conf.urls.static import static
@@ -24,6 +24,9 @@ admin.site.site_header='welcOme_tO_Habib_s__'
 admin.site.site_title='Welcome!!'
 admin.site.site_index='10001101011'
 urlpatterns = [
+    path('jet/',include('jet.urls','jet')),
+    path('jet/dashboard',include('jet.dashboard.urls','jet-dashboard')),
+    
     path('admin/', admin.site.urls),
     path('homepage', blogs, name='home' ),
     path('airliners/', air, name='airline' )

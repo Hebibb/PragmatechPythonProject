@@ -8,7 +8,7 @@ class ClothAdmin(admin.ModelAdmin):
     def clothing_types(self,obj):
         return obj.cl_type.name
 #if inputs are more you can show them in fieldsets
-    list_display=('company_name','cl_type','size','price','rating','genders')
+    list_display=('company_name','cl_type','size','amazing','rating','genders')
   
     list_display_links=('company_name','size',)
    

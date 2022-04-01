@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib import admin
+from django.utils.html import format_html
 # Create your models here.
 #clothes classes starts
 
@@ -63,15 +64,14 @@ class Cloth(models.Model):
     price=models.IntegerField(default=0)
     rating=models.IntegerField(default=0,blank=True)
     stores=models.ManyToManyField('Store')
-    from django.contrib import admin
-    from django.utils.html import format_html
+  
     
     
     @admin.display(description='Cloth amazing')
     def amazing(self):
         return format_html(
-           ' <p style="color: #{};">{}</p>',
-           '#880808',
+           '<p style="color: #{};">{}</p>',
+           'FFBF00',
            self.price,
             )
     class Meta:
