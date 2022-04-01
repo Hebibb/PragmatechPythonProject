@@ -19,6 +19,10 @@ from blogs.views import blogs
 from aircrafts.views import air
 from django.conf.urls.static import static
 from django.conf import settings
+
+admin.site.site_header='welcOme_tO_Habib_s__'
+admin.site.site_title='Welcome!!'
+admin.site.site_index='10001101011'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('homepage', blogs, name='home' ),

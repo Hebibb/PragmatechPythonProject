@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'aircrafts.apps.AircraftsConfig',
     'products',
-    'clothes'
+    'clothes',
 ]
 
 MIDDLEWARE = [
