@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'aircrafts.apps.AircraftsConfig',
     'products',
     'clothes',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#below two added afterwards
 JET_THEMES = [
     {
         'theme': 'default', # theme folder name
@@ -88,6 +91,8 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
+
+AUTH_USER_MODEL='accounts.User'
 
 ROOT_URLCONF = 'Django_ORM.urls'
 
