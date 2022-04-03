@@ -20,7 +20,7 @@ from aircrafts.views import air
 from contacts.views import contact
 from django.conf.urls.static import static
 from django.conf import settings
-
+from index.views import getintouch
 admin.site.site_header='welcOme_tO_Habib_s__'
 admin.site.site_title='Welcome!!'
 admin.site.site_index='10001101011'
@@ -30,5 +30,6 @@ urlpatterns = [
     path('contact/',contact, name='contact'),
     path('admin/', admin.site.urls),
     path('homepage', blogs, name='home' ),
-    path('airliners/', air, name='airline' )
+    path('airliners/', air, name='airline' ),
+    path('index/', getintouch, name='index' )
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#modelleri yazmaq ucun bu settingsi de urle elave etmek lazimdi.

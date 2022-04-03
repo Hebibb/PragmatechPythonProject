@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+{% block content %}
+
+
+<form method="post">
+  {% csrf_token %}
+    <div class="form-row">
+   {% for f in form %}
+
+   {{f}}
+   {% for error in field.error %}
+   <a class='alert alert-danger'> {{error}}</a>
+  {% endfor %}
+   {% endfor %}
+      </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+  
+  {% endblock %}

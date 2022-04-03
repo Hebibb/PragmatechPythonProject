@@ -14,7 +14,7 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row my-3">
 
             {% block content %} {% endblock %}
 
@@ -23,7 +23,16 @@
         </div>
 
     </div>
-
+    {% if messages %}
+    <div class="messages" style="transition:0.8s">
+        {% for message in messages %}
+        <h1{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+    </h1>
+        {% endfor %}
+    </div>
+    {% endif %}
 
 </body>
 {% include 'blogs/footer.html' %}
