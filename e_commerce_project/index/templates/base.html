@@ -1,3 +1,83 @@
-{% include 'include/navbar.html' %}
-{% block content %}{% endblock %}
-{% include 'include/footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from portotheme.com/html/wolmart/demo1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Apr 2022 06:38:03 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    <meta name="keywords" content="Marketplace ecommerce responsive HTML5 Template" />
+    <meta name="description" content="Wolmart is powerful marketplace &amp; ecommerce responsive Html5 Template.">
+    <meta name="author" content="D-THEMES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}">
+
+    <!-- WebFont.js -->
+    <script>
+        WebFontConfig = {
+            google: {
+                families: ['Poppins:400,500,600,700,800']
+            }
+        };
+        (function(d) {
+            var wf = d.createElement('script'),
+                s = d.scripts[0];
+            wf.src = "js/webfont.js";
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
+
+    <link rel="preload" href="{% static 'vendor/fontawesome-free/webfonts/fa-regular-400.woff2' %}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'vendor/fontawesome-free/webfonts/fa-solid-900.woff2' %}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'vendor/fontawesome-free/webfonts/fa-brands-400.woff2' %}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'fonts/wolmart87d5.woff?png09e' %}" as="font" type="font/woff'  crossorigin=" anonymous ">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet " type="text/css " href="{% static 'vendor/fontawesome-free/css/all.min.css' %} ">
+
+    <!-- Plugins CSS -->
+    <!-- <link rel="stylesheet " href="{% static 'vendor/swiper/swiper-bundle.min.css' %}> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/magnific-popup/magnific-popup.min.css' %}">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/swiper/swiper-bundle.min.css' %}">
+
+    <!-- Default CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo1.min.css' %} ">
+
+</head>
+
+<body class="home">
+    <div class="page-wrapper">
+
+
+        {% include 'include/navbar.html' %} {% block content %}{% endblock %} {% include 'include/footer.html' %}
+    </div>
+    <!-- End of Quick view -->
+
+    <!-- Plugin JS File -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/sticky/sticky.js' %}"></script>
+    <script src="{% static 'vendor/jquery.plugin/jquery.plugin.min.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/skrollr/skrollr.min.js' %}"></script>
+    <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'vendor/zoom/jquery.zoom.js' %}"></script>
+    <script src="{% static 'vendor/jquery.countdown/jquery.countdown.min.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.min.js' %}"></script>
+</body>
+
+
+<!-- Mirrored from portotheme.com/html/wolmart/demo12-shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Apr 2022 06:35:45 GMT -->
+
+</html>
