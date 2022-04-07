@@ -39,7 +39,7 @@ class GetintouchForm(ModelForm):
                 }
             )
         }
-    def clean_email(self):
+def clean_email(self):
         email=self.cleaned_data['email']
         if not email.endswith('bk.ru'):
             raise ValidationError('Nar abunəsi olmayanlar daxil ola bilməz')
