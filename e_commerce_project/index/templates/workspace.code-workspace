@@ -1,0 +1,17 @@
+{
+    "folders": [
+		{
+			"name": "www.portotheme.com",
+			"path": "..\\..\\..\\..\\..\\..\\..\\habibs_project\\E_Commerce_Proj\\www.portotheme.com"
+		},
+		{
+			"name": "hts-cache",
+			"path": "..\\..\\..\\..\\..\\..\\..\\habibs_project\\E_Commerce_Proj\\hts-cache"
+		},
+		{
+			"name": "e_commerce_project",
+			"path": "..\\.."
+		}
+	],
+    "settings": {}
+}
