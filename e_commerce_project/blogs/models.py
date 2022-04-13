@@ -9,7 +9,7 @@ class Blog(models.Model):
     date=models.DateField(auto_now_add=True)
     
     def __str__(self):
-        return f'{self.author}\'s {category_tag} blog'
+        return f'{self.author}\'s  blog'
     class Meta:
         verbose_name='Blog'
         verbose_name_plural='Blogs'
