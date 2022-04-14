@@ -1,5 +1,5 @@
 from email import message
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render,reverse
 from django.urls import reverse_lazy
 from . forms import RegisterForm,LoginForm
 from django.contrib import messages
@@ -53,9 +53,6 @@ def register(request):
         if User.objects.filter(email=email):
             messages.error(request,'This email has been already registered')
             return redirect('login')
-        
-        
-        
         if form.is_valid():#if form submitted
             user=form.save(commit=False)#saves form to user variable,but commit gives chance to check
             user.set_password(form.cleaned_data.get('password1'))#sets password
@@ -99,8 +96,9 @@ def signin(request):
             if user:
                 django_login(request, user)
                 messages.success(request, 'You logged in ')
-                return redirect(reverse_lazy('blogs:home_blog'))
-            messages.success(request, 'you could not make it.')
+                return redirect(reverse_lazy('index:home'))
+            else:
+                messages.success(request, 'you could not make it.')
                                 
                                 
     return render(request, 'login.html')
@@ -108,4 +106,4 @@ def signin(request):
 def signout(request):
     logout(request)
     messages.success(request, 'You are signed out')
-    return redirect('/blog')
+    return redirect('/login')

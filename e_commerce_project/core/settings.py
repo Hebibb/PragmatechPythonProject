@@ -145,3 +145,6 @@ EMAIL_HOST_PASSWORD = 'flvcgcupknlmbbze'
 EMAIL_PORT = 587  
 EMAIL_BACKEND='django.core.mail.backends.smtp.Emailbackend'
 SITE_ADDRESS='HTTP:127.0.0.1:8000'
+
+#when user successfully logged in
+LOGIN_REDIRECT_URL = "/"

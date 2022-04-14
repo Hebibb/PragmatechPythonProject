@@ -39,8 +39,17 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="sign-in">
-                            <form action="/" method="post">
-
+                         
+                            <form action="#" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                <label>Username or email address *</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group mb-0">
+                                <label>Password *</label>
+                                
+                            </div>
 
 
                                 <!-- <div class="form-group">
