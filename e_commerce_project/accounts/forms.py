@@ -45,3 +45,11 @@ class RegisterForm(UserCreationForm):
             'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'email'},),
             'username':forms.TextInput(attrs={'class':'form-control','placeholder':'nickname'},)
         }
+
+class LoginForm(forms.Form):
+    email=forms.EmailField(max_length=60,widget=forms.EmailInput(attrs={
+        'class':'form-group','placeholder':'email'
+    }))
+    password=forms.CharField(max_length=20,widget=forms.PasswordInput(attrs={
+        'class':'form-group','placeholder':'password'
+    }))

@@ -1,7 +1,7 @@
 from email import message
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from . forms import RegisterForm
+from . forms import RegisterForm,LoginForm
 from django.contrib import messages
 from accounts.utils import confirm_email
 from django.utils.encoding import force_str
@@ -10,6 +10,7 @@ from accounts.tools.tokens import account_activation_token
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, get_user_model, login as django_login, logout as django_logout
 from django.conf import settings
+from . models import User
 def activate(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
@@ -46,10 +47,19 @@ def register(request):
     form=RegisterForm()
     if request.method=='POST':#if form method is post
         form=RegisterForm(data=request.POST)
+        if User.objects.filter(username=username):
+            messages.error(request,'This user has been already registered')
+            return redirect('login')
+        if User.objects.filter(email=email):
+            messages.error(request,'This email has been already registered')
+            return redirect('login')
+        
+        
+        
         if form.is_valid():#if form submitted
             user=form.save(commit=False)#saves form to user variable,but commit gives chance to check
             user.set_password(form.cleaned_data.get('password1'))#sets password
-            user,is_active=False#send comfirmation query to your given email address
+            user.is_active=False#send comfirmation query to your given email address
             user.save()
             messsages.success(request,f'{user.first_name} {user.last_name} were successfully registered',)
             site_address = request.is_secure() and "https://" or "http://" + request.META['HTTP_HOST']  # https
@@ -61,3 +71,41 @@ def register(request):
        
     
     return render(request,'login.html',context)
+def signin(request):
+    
+    # if request.method=='POST':
+    #     username=request.POST['username']
+    #     password=request.POST['password']
+        
+    #     user=authenticate(username=username,password=password)
+        
+    #     if user is not None:
+    #         login(request, 'blog.html')
+    #         fname=user.first_name
+    #         context={
+    #             'firstname':fname
+    #         }
+    #     else:
+    #         messages.error(request,f'{user.username} is not participant of our site')
+    #         return redirect('/login',context)
+    
+    form=LoginForm()
+    if request.method=='POST':
+        form=LoginForm(request.POST)
+        if form.is_valid():
+            email=form.cleaned_data.get('email')
+            password=form.cleaned_data.get('password')
+            user=authenticate(email=email,password=password)
+            if user:
+                django_login(request, user)
+                messages.success(request, 'You logged in ')
+                return redirect(reverse_lazy('blogs:home_blog'))
+            messages.success(request, 'you could not make it.')
+                                
+                                
+    return render(request, 'login.html')
+
+def signout(request):
+    logout(request)
+    messages.success(request, 'You are signed out')
+    return redirect('/blog')

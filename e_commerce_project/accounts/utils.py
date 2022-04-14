@@ -8,14 +8,14 @@ from accounts.tools.tokens import account_activation_token
 User=get_user_model()
 #confirmation email sent via the tools in we added in settings
 def confirm_email(user_id,site_address):
-    user=User.objects.filter(id=User_id)
+    user=User.objects.filter(id=User_id).first()
     host_email=settings.EMAIL_HOST_USER
     guest_email=user.email#get email user input
     subject='Please confirm you registration email'
     context={
         'user':user,
         'site_Address':site_address,
-        'uid':urlsafe_base64_decode(force_bytes(user.pk)),
+        'uid':urlsafe_base64_encode(force_bytes(user.pk)),
         'token':account_activation_token.make_token(user),
     }
     #sending email to guest email which 
