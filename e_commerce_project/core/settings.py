@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'index',
     'products',
     'vendors',
-    'shops',
+    
    
 ]
 

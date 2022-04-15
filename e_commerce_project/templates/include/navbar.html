@@ -1,5 +1,4 @@
 {% load static %}
-
         <h1 class="d-none">Wolmart - Responsive Marketplace HTML Template</h1>
         <!-- Start of Header -->
         <header class="header">
@@ -37,17 +36,17 @@
                         </div>
                         <!-- End of Dropdown Menu -->
                         <span class="divider d-lg-show"></span>
-                        <a href="{% url 'blogs:blog' %}" class="d-lg-show">Blog</a>
+                        <a href="{% url 'blog' %}" class="d-lg-show">Blog</a>
                         <a href="contact-us.html" class="d-lg-show">Contact Us</a>
                         <a href="my-account.html" class="d-lg-show">My Account</a>
                         <span class="delimiter d-lg-show">/</span>
                         {% if user.is_authenticated %}
-                        <a href="{% url 'register:logout' %}" class="ml-0 d-lg-show login register">Log out</a>
+                        <a href="{% url 'register' %}" class="ml-0 d-lg-show login register">Log out</a>
                         {% else %} 
-                        <a href="{% url 'accounts:register' %}" class="d-lg-show login sign-in"><i
+                        <a href="{% url 'register' %}" class="d-lg-show login sign-in"><i
                             class="w-icon-account"></i>Sign In</a>
                             <span class="delimiter d-lg-show">/</span>
-                            <a href="{% url 'accounts:register' %}" class="ml-0 d-lg-show login register">Register</a>
+                            <a href="{% url 'register' %}" class="ml-0 d-lg-show login register">Register</a>
                         {% endif %}
                    
      

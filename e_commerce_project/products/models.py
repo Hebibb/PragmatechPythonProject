@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 #clothes classes starts
 
+from vendors.models import Vendor
 
 
     
@@ -18,8 +19,8 @@ class Brand(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name='Textile Company'
-        verbose_name_plural='Textile Companies'
+        verbose_name='Brand'
+        verbose_name_plural='Brands'
         ordering=('-name',)
 
 
@@ -33,11 +34,9 @@ class Product_category(models.Model):
 
 
 
-
-
 class Product(models.Model):
 
-    sizes=(('small','Small'),
+    choices=(('small','Small'),
              ('medium','Medium'),
              ('large','Large'),
              ('extra large','Extra Large'),
@@ -46,29 +45,29 @@ class Product(models.Model):
     name=models.CharField(max_length=50,db_index=True,default='unknown')
     category=models.ForeignKey('Product_category', on_delete=models.CASCADE,max_length=100,help_text='add product category')
     brand=models.ForeignKey(Brand, on_delete=models.CASCADE)
-    size=models.CharField(max_length=30,sizes=sizes)
+    size=models.CharField(max_length=30,choices=choices)
     color=models.CharField(max_length=50)
     price=models.IntegerField(default=0)
-    image=models.ImageField(upload_to='/products')
+    image=models.ImageField(upload_to='products')
     rating=models.IntegerField(default=0,blank=True)
     info=models.TextField(blank=True,null=True)
-    stores=models.ManyToManyField('Store')
+   
   
 class Product_Features(models.Model):
     describtion=models.TextField()
     
-    @admin.display(description='Cloth amazing')
-    def amazing(self):
-        return format_html(
-           '<p style="color: #{};">{}</p>',
-           'FFBF00',
-           self.price,
-            )
-    class Meta:
-        verbose_name='Cloth'
-        verbose_name_plural='Clothes'
-        ordering=('-size',)
+    # @admin.display(description='Cloth amazing')
+    # def amazing(self):
+    #     return format_html(
+    #        '<p style="color: #{};">{}</p>',
+    #        'FFBF00',
+    #        self.price,
+    #         )
+    # class Meta:
+    #     verbose_name='Cloth'
+    #     verbose_name_plural='Clothes'
+    #     ordering=('-size',)
        
-    def __str__(self):
+    # def __str__(self):
         
-        return self.name
+    #     return self.name
