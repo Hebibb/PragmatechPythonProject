@@ -1,0 +1,3 @@
+1.Docker
+2.postgresql
+3.separate login and register htmls
