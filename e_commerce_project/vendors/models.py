@@ -7,7 +7,5 @@ class Vendor(models.Model):
     city=models.CharField(max_length=200,) 
     street=models.CharField(max_length=200,) 
     phone=models.CharField(max_length=10,blank=True,null=True,)
-    rating=models.IntegerField()
-    
     def __str__(self):
         return self.name

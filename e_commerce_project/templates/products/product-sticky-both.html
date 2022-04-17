@@ -42,10 +42,11 @@
                     <div class="row product product-single mb-5">
                         <div class="col-lg-6">
                             <div class="row cols-lg-1 cols-sm-2  product-gallery">
+                                {% for product in products %}
                                 <div class="product-image-wrap">
                                     <figure class="product-image mb-4">
-                                        <img src="{% static 'images/products/sticky/9-800x900.jpg' %}"
-                                            data-zoom-image="{% static 'images/products/sticky/9-800x900.jpg' %}"
+                                        <img src="{{ product.image1.url }}"
+                                            data-zoom-image="{{ product.image1.url }}"
                                             alt="Super Pixel Camera" width="800" height="900">
                                         <a href="#" class="product-gallery-btn product-image-full"><i
                                                 class="w-icon-zoom"></i></a>
@@ -53,8 +54,8 @@
                                 </div>
                                 <div class="product-image-wrap">
                                     <figure class="product-image mb-4">
-                                        <img src="{% static 'images/products/sticky/10-800x900.jpg' %}"
-                                            data-zoom-image="{% static 'images/products/sticky/10-800x900.jpg' %}"
+                                        <img src="{{ product.image2.url }}"
+                                            data-zoom-image="{{ product.image2.url }}"
                                             alt="Super Pixel Camera" width="800" height="900">
                                         <a href="#" class="product-gallery-btn product-image-full"><i
                                                 class="w-icon-zoom"></i></a>
@@ -62,8 +63,8 @@
                                 </div>
                                 <div class="product-image-wrap">
                                     <figure class="product-image mb-4">
-                                        <img src="{% static 'images/products/sticky/11-800x900.jpg' %}"
-                                            data-zoom-image="{% static 'images/products/sticky/11-800x900.jpg' %}"
+                                        <img src="{{ product.image3.url }}"
+                                            data-zoom-image="{{ product.image3.url }}"
                                             alt="Super Pixel Camera" width="800" height="900">
                                         <a href="#" class="product-gallery-btn product-image-full"><i
                                                 class="w-icon-zoom"></i></a>
@@ -71,8 +72,8 @@
                                 </div>
                                 <div class="product-image-wrap">
                                     <figure class="product-image mb-4">
-                                        <img src="{% static 'images/products/sticky/12-800x900.jpg' %}"
-                                            data-zoom-image="{% static 'images/products/sticky/12-800x900.jpg' %}"
+                                        <img src="{{ product.image4.url }}"
+                                            data-zoom-image="{{ product.image4.url }}"
                                             alt="Super Pixel Camera" width="800" height="900">
                                         <a href="#" class="product-gallery-btn product-image-full"><i
                                                 class="w-icon-zoom"></i></a>
@@ -82,19 +83,19 @@
                         </div>
                         <div class="col-md-6 col-lg-3 product-details-1 sticky-sidebar-wrapper">
                             <div class="product-details sticky-sidebar" data-sticky-options="{'minWidth': 767}">
-                                <h1 class="product-title">Super Pixel Camera</h1>
+                                <h1 class="product-title">{{ product.name }}</h1>
                                 <div class="product-bm-wrapper">
                                     <figure class="brand">
-                                        <img src="{% static 'images/products/brand/brand-3.jpg' %}" alt="Brand" width="110"
+                                        <img src="addvendor" alt="Brand" width="110"
                                             height="48" />
                                     </figure>
                                     <div class="product-meta">
                                         <div class="product-categories">
                                             Category:
-                                            <span class="product-category"><a href="#">Electronics</a></span>
+                                            <span class="product-category"><a href="#">{{ product.category }}</a></span>
                                         </div>
                                         <div class="product-sku">
-                                            SKU: <span>MS46891372</span>
+                                            SKU: <span>{{ product.bar_code }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -108,18 +109,19 @@
                                         <span class="ratings" style="width: 80%;"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="#product-tab-reviews" class="rating-reviews">(3 Reviews)</a>
+                                    <a href="#product-tab-reviews" class="rating-reviews">({{ product.rating }} Reviews)</a>
                                 </div>
 
                                 <div class="product-short-desc">
                                     <ul class="list-type-check list-style-none pl-0">
-                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
-                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
-                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                        <li>{{ product.feature1 }}</li>
+                                        <li>{{ product.feature2 }}</li>
+                                        <li>{{ product.feature3 }}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                         <div class="col-md-6 col-lg-3 product-defaults-2 sticky-sidebar-wrapper">
                             <div class="sticky-sidebar">
                                 <div class="product-form product-variation-form product-color-swatch">

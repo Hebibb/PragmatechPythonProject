@@ -122,12 +122,12 @@ WSGI_APPLICATION = 'Django_ORM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER':'poStgres',
+        'USER':'postgres',
         'PASSWORD':'postgres',
         'HOST': '127.0.0.1',
-        'PORT':'5001'
+        'PORT':'8000'
     }
 }
 

@@ -20,10 +20,12 @@ from index.views import home
 from products.views import product_show
 from django.conf import settings
 from django.conf.urls.static import static
+app_name='core'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',home_blog,name='blog'),
-    path('',include('accounts.urls.urls')),
+    path('',include('accounts.urls.urls',namespace='register')),
     path('',include('index.url.urls')),
     path('',include('products.urls.url')),
    

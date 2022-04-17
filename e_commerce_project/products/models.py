@@ -7,13 +7,17 @@ from django.utils.translation import gettext_lazy as _
 
 from vendors.models import Vendor
 
-
+class Store(models.Model):
+    name=models.CharField(max_length=50,blank=True,null=True)
+ 
+    
     
     
 class Brand(models.Model):
+    image=models.ImageField(upload_to='brands/',blank=True)
     name=models.CharField(default='Unknown', max_length=150,blank=True)
-    city_address=models.CharField(default='Unknown', max_length=150,help_text='detailed address')
-    list_filter=('city_address')
+    created=models.DateField(blank=True,null=True)
+   
 
     def __str__(self):
         return f'{self.name}'
@@ -32,6 +36,10 @@ class Product_category(models.Model):
     def __str__(self):
         return self.name
 
+class Meta:
+        verbose_name='product_category'
+        verbose_name_plural='product_categories'
+        ordering=('-name',)
 
 
 class Product(models.Model):
@@ -43,31 +51,27 @@ class Product(models.Model):
              )
     
     name=models.CharField(max_length=50,db_index=True,default='unknown')
+    bar_code=models.TextField(max_length=12,unique=True,default='000000000000')
     category=models.ForeignKey('Product_category', on_delete=models.CASCADE,max_length=100,help_text='add product category')
     brand=models.ForeignKey(Brand, on_delete=models.CASCADE)
-    size=models.CharField(max_length=30,choices=choices)
+    size=models.CharField(max_length=30,choices=choices,blank=True,null=True)
     color=models.CharField(max_length=50)
     price=models.IntegerField(default=0)
-    image=models.ImageField(upload_to='products')
+    # vendor=models.ForeignKey('vendors.Vendor', on_delete=models.CASCADE)
+    image1=models.ImageField(upload_to='products/')
+    image2=models.ImageField(upload_to='products/')
+    image3=models.ImageField(upload_to='products/')
+    image4=models.ImageField(upload_to='products/')
     rating=models.IntegerField(default=0,blank=True)
-    info=models.TextField(blank=True,null=True)
-   
-  
-class Product_Features(models.Model):
-    describtion=models.TextField()
+    general_info=models.TextField(blank=True,null=True)
+    feature1=models.TextField(blank=True,null=True)
+    feature2=models.TextField(blank=True,null=True)
+    feature3=models.TextField(blank=True,null=True)
+    date=models.DateTimeField(auto_now=True)
     
-    # @admin.display(description='Cloth amazing')
-    # def amazing(self):
-    #     return format_html(
-    #        '<p style="color: #{};">{}</p>',
-    #        'FFBF00',
-    #        self.price,
-    #         )
-    # class Meta:
-    #     verbose_name='Cloth'
-    #     verbose_name_plural='Clothes'
-    #     ordering=('-size',)
-       
-    # def __str__(self):
-        
-    #     return self.name
+    def __str__(self):
+        return self.name
+    
+    
+    
+    
