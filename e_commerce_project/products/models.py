@@ -57,7 +57,7 @@ class Product(models.Model):
     size=models.CharField(max_length=30,choices=choices,blank=True,null=True)
     color=models.CharField(max_length=50)
     price=models.IntegerField(default=0)
-    # vendor=models.ForeignKey('vendors.Vendor', on_delete=models.CASCADE)
+    vendor=models.ForeignKey('vendors.Vendor', on_delete=models.CASCADE)
     image1=models.ImageField(upload_to='products/')
     image2=models.ImageField(upload_to='products/')
     image3=models.ImageField(upload_to='products/')
@@ -67,11 +67,14 @@ class Product(models.Model):
     feature1=models.TextField(blank=True,null=True)
     feature2=models.TextField(blank=True,null=True)
     feature3=models.TextField(blank=True,null=True)
+    guarantee=models.IntegerField(default=0)
     date=models.DateTimeField(auto_now=True)
+    slug=models.SlugField(max_length=255,blank=True,null=True)
+    #signals
+
     
     def __str__(self):
         return self.name
-    
     
     
     

@@ -86,7 +86,7 @@
                                 <h1 class="product-title">{{ product.name }}</h1>
                                 <div class="product-bm-wrapper">
                                     <figure class="brand">
-                                        <img src="addvendor" alt="Brand" width="110"
+                                        <img src="{{ product.brand.image.url }}" alt="Brand" width="110"
                                             height="48" />
                                     </figure>
                                     <div class="product-meta">
@@ -102,7 +102,7 @@
 
                                 <hr class="product-divider">
 
-                                <div class="product-price"><ins class="new-price">$420.00 - $700.00</ins></div>
+                                <div class="product-price"><ins class="new-price">${{ product.price }}</ins></div>
 
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -121,7 +121,34 @@
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
                         <div class="col-md-6 col-lg-3 product-defaults-2 sticky-sidebar-wrapper">
                             <div class="sticky-sidebar">
                                 <div class="product-form product-variation-form product-color-swatch">
@@ -207,15 +234,12 @@
                                 <div class="row mb-4">
                                     <div class="col-md-6 mb-5">
                                         <h4 class="title tab-pane-title font-weight-bold mb-2">Detail</h4>
-                                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do eiusmod tempor incididunt arcu cursus vitae congue mauris.
-                                            Sagittis id consectetur purus ut. Tellus rutrum tellus pelle Vel
-                                            pretium lectus quam id leo in vitae turpis massa.</p>
+                                        <p class="mb-4">{{ product.general_info }}</p>
                                         <ul class="list-type-check">
-                                            <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.
+                                            <li>{{ product.feature1 }}
                                             </li>
-                                            <li>Vivamus finibus vel mauris ut vehicula.</li>
-                                            <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>
+                                            <li>{{ product.feature2 }}</li>
+                                            <li>{{ product.feature3 }}</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6 mb-5">
@@ -255,19 +279,19 @@
                                 <ul class="list-none">
                                     <li>
                                         <label>Model</label>
-                                        <p>Skysuite 320</p>
+                                        <p>{{ product.name }}</p>
                                     </li>
                                     <li>
                                         <label>Color</label>
-                                        <p>Black</p>
+                                        <p>{{ product.color }}</p>
                                     </li>
                                     <li>
                                         <label>Size</label>
-                                        <p>Large, Small</p>
+                                        <p>{{ product.size }}</p>
                                     </li>
                                     <li>
                                         <label>Guarantee Time</label>
-                                        <p>3 Months</p>
+                                        <p>{{ product.guarantee }} Months</p>
                                     </li>
                                 </ul>
                             </div>
@@ -917,10 +941,10 @@
                             <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
                                 <div class="swiper-slide product">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{% static 'images/products/default/1-1.jpg' %}" alt="Product"
+                                        <a href="{% url  'products' %}">
+                                            <img src="{{ product.image2.url }}" alt="Product"
                                                 width="300" height="338" />
-                                            <img src="{% static 'images/products/default/1-2.jpg' %}" alt="Product"
+                                            <img src="{{ product.image3.url }}" alt="Product"
                                                 width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
@@ -946,10 +970,10 @@
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                            <a href="product-default.html" class="rating-reviews">({{ product.rating }} reviews)</a>
                                         </div>
                                         <div class="product-pa-wrapper">
-                                            <div class="product-price">$20.00</div>
+                                            <div class="product-price">${{ product.price }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1242,6 +1266,6 @@
         <!-- End of Main -->
 
         <!-- Start of Footer -->
-   
+        {% endfor %}
 
 {% endblock  %}
