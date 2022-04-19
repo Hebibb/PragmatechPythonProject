@@ -7,6 +7,6 @@ class ProductsConfig(AppConfig):
     
     
     def ready(self):
-        import cmdbox.products.signals 
+        import products.signals 
     # def ready(self):
     #     import 

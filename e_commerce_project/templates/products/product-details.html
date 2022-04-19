@@ -8,7 +8,7 @@
             <nav class="breadcrumb-nav container">
                 <ul class="breadcrumb bb-no">
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="product-default.html">Products</a></li>
+                    <li><a href="{% url ;'products' %}">Products</a></li>
                     <li>Sticky Both</li>
                 </ul>
                 <ul class="product-nav list-style-none">
@@ -206,24 +206,9 @@
                                     </div>
                                     <span class="divider d-xs-show"></span>
                                     <div class="product-link-wrapper d-flex mr-0">
-                                        <form method="post">
-                                        {% csrf_token %}
-
-                        
-                                            
-                                        <input name='product_id' type='hidden' value='{{ product.id }}' >                           
-                                        <button href="#"   type="submit"  class="btn-product-icon btn-wishlist w-icon-heart"> 
-  
-
-                                        </button>
-           
-      
-       
- 
-                        
-                                           
-                </form>
-             
+                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
+                                        <a href="#"
+                                            class="btn-product-icon btn-compare btn-icon-left mr-0 w-icon-compare"><span></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -956,7 +941,7 @@
                             <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
                                 <div class="swiper-slide product">
                                     <figure class="product-media">
-                                        <a href="{{ products.get_absolute_url }}">
+                                        <a href="{% url  'products' %}">
                                             <img src="{{ product.image2.url }}" alt="Product"
                                                 width="300" height="338" />
                                             <img src="{{ product.image3.url }}" alt="Product"
@@ -1281,6 +1266,6 @@
         <!-- End of Main -->
 
         <!-- Start of Footer -->
-        {% endfor %}
+        
 
 {% endblock  %}

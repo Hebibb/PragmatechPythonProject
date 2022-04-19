@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'blogs',
     'index',
-    'products',
+    'products.apps.ProductsConfig',
     'vendors',
     
    
