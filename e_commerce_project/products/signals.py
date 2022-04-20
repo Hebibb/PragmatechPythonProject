@@ -10,3 +10,10 @@ def slug_save(instance,created, *args, **kwargs):
         Product.objects.filter(id=instance.id).update(slug=slugify(instance.name))
     
 # post_save.connect(slug_save,sender=Product)
+
+#other vesion
+#this version been cut from modules.py
+# def slug_save(instance,*args,**kwargs):
+#         Product.objects.filter(id=instance.id).update(slug=slugify(instance.name))
+
+# post_save.connect(slug_save,sender=Product)

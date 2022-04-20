@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . models import Product,Brand
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 @csrf_exempt
@@ -20,15 +21,20 @@ def product_show(request):
 @csrf_exempt
 def shops(request):
     products=Product.objects.all()
-    context={'products':products,}
-    return render(request, 'shops/shop-banner-sidebar.html',context)
+
+   
+    
+    return render(request, 'shops/shop-banner-sidebar.html', {'products':products,})
 
 
 
 @csrf_exempt
-def product_details(request):
-    products=Product.objects.filter(slug=slug)
-    return render(request,'product/product_-detail.html',{'products':products})
+def product_details(request,slug):
+    unit=Product.objects.filter(slug=slug)
+    context={
+        'unit':unit
+    }
+    return render(request,'products/product-swatch.html',context)
 
 
     
