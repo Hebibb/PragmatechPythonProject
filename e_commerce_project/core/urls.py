@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include,re_path
 from blogs.views import home_blog
 from index.views import home
-from products.views import product_show
+
 from django.conf import settings
 from django.conf.urls.static import static
 app_name='core'

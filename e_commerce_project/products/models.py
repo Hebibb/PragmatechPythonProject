@@ -8,6 +8,7 @@ from django.conf import settings
 from vendors.models import Vendor
 from django.urls import reverse_lazy
 from django.contrib.auth import get_user_model
+
 # Create your models here.
 #clothes classes starts
 # User=settings.AUTH_USER_MODEL

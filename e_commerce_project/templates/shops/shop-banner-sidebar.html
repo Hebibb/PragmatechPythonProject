@@ -407,8 +407,13 @@
                                     <div class="product-action-horizontal">
                                         <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                             title="Add to cart"></a>
-                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                            title="Wishlist"></a>
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <input name='product_id' type='hidden' value='{{ product.id }}' >                           
+                                                <a href="#" type="submit"  class="btn-product-icon btn-wishlist w-icon-heart"
+                                                title="Wishlist"></a>
+                                            </form>
+                                        
                                         <a href="#" class="btn-product-icon btn-compare w-icon-compare"
                                             title="Compare"></a>
                                         <a href="#" class="btn-product-icon btn-quickview w-icon-search"
@@ -450,22 +455,38 @@
                             Showing<span>1-12 of 60</span>Products
                         </p>
                         <ul class="pagination">
+                            {% if curren_page is not previous_page %}
                             <li class="prev disabled">
-                                <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
-                                    <i class="w-icon-long-arrow-left"></i>Prev
+                                <a href="?page={{previous_page}}" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                    <i  class="w-icon-long-arrow-left"></i>Prev
                                 </a>
                             </li>
+                            {% endif %}
+
+                            {%  for page in page_range %}
+                            {% if page is current_page %}
                             <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
+                                <a class="page-link" href="#">{{page}}</a>
                             </li>
+                            {% else %}
                             <li class="page-item">
-                                <a class="page-link" href="#">2</a>
+                                <a class="?page={{ page }}" href="#">{{page}}</a>
                             </li>
+                            {% endif %}
+           {% endfor %}
+
+
+                            {% if current_page is not next_page  %}
+                            
+
                             <li class="next">
-                                <a href="#" aria-label="Next">
-                                    Next<i class="w-icon-long-arrow-right"></i>
+                                <a href="?page={{ next_page }}  aria-label="Next">
+                                    Next<i " class="w-icon-long-arrow-right"></i>
                                 </a>
                             </li>
+
+                            {% endif %}
+         
                         </ul>
                     </div>
                 </div>
