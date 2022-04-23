@@ -28,5 +28,6 @@ urlpatterns = [
     path('',include('accounts.urls.urls',namespace='register')),
     path('',include('index.url.urls')),
     path('',include('products.urls.url')),
+    path('oauth/', include('social_django.urls', namespace='social')),
    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
